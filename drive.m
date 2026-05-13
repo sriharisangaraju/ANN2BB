@@ -34,7 +34,7 @@ separate_regions = 'True';
 
 % ANN METADATA
 % number of ANNs
-ann.trn.nr = 2; 
+ann.trn.nr = 1; 
 % corner period
 TnC = [1];
 % direction (h12v=Three-components;ud=vertical;h=rotational-invariant h_inv)
