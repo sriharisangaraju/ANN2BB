@@ -20,6 +20,7 @@ add_fm = varargin{13};
 separate_regions = varargin{14};
 add_depth = varargin{15};
 
+
 if net_ID <10
     verNet = ['v0',num2str(net_ID)];
 elseif net_ID <100
@@ -31,9 +32,10 @@ db = load(ann.dbn);
 db.nr  = size(db.DATABASE,2);
 db.vTn = varargin{16};
 db.nT  = numel(db.vTn);
+all_periods = varargin{17};
 
 % define input/target natural periods
-all_periods=[0,0.05,0.07,(0.1:0.05:0.5),0.6,0.7,0.75,0.8,0.9,1.0:0.2:2.0,(2.5:0.5:5)];
+% all_periods=[0,0.05,0.07,(0.1:0.05:0.5),0.6,0.7,0.75,0.8,0.9,1.0:0.2:2.0,(2.5:0.5:5)];
 % all_periods = [0,0.01,0.025,0.04,0.05,0.07,(0.1:0.05:0.5),0.6,0.7,0.75,0.8,0.9,(1:0.2:2),(2.5:0.5:5),(6:1:10)];
 [inp.vTn,tar.vTn,inp.nT,tar.nT] = trann_define_inout(ann.TnC,all_periods);
 % check input/target natural periods with database

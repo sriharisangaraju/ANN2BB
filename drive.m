@@ -43,6 +43,8 @@ nnr = 1; %scaling factor N1=nnr*No. input periods, N2=3*nnr*No. output periods
 %;vTn = Vector with the periods at which the spectral accelerations of the
 %database are computed. For the given databases do not change
 vTn = [0;0.01;0.025;0.04;0.05;0.07;(0.1:0.05:0.5)';0.6;0.7;0.75;0.8;0.9;(1:0.2:2)';(2.5:0.5:5)';(6:1:10)'];
+%periods to use as input/output from the list above:
+all_periods=[0,0.05,0.07,(0.1:0.05:0.5),0.6,0.7,0.75,0.8,0.9,1.0:0.2:2.0,(2.5:0.5:5)];
 
 %%
 
@@ -79,7 +81,7 @@ for iNet = 1:num_nets
     net_ID = iNet;
     for i_ = 1:ann.trn.nr
         train_ann_PSA(ann.trn.wd,ann.trn.mtd(i_),dbn_name,net_ID,n_LoopsANN,TransferLearning,...
-        dbn2,add_distance,add_m,add_lndistance,separate_classes,add_vs30,add_fm,separate_regions,add_depth,vTn);
+        dbn2,add_distance,add_m,add_lndistance,separate_classes,add_vs30,add_fm,separate_regions,add_depth,vTn,all_periods);
     end
 end
 tEnd_all = toc(tstart);
